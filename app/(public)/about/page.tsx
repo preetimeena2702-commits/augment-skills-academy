@@ -152,8 +152,8 @@ export default function AboutPage() {
           <div className="grid gap-6 lg:grid-cols-2">
             {/* How we teach */}
             <Reveal>
-              <div className="rounded-3xl bg-[#0e1e33] p-8 text-white h-full shadow-xl shine-border-card">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
+              <div className="rounded-3xl bg-[#0e1e33] p-8 h-full shadow-xl shine-border-card">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-yellow-500/10">
                   <Sparkles size={20} className="text-accent-3" />
                 </div>
                 <h2 className="text-2xl font-black">How we teach</h2>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                     "We keep the learner experience warm, clear, and confidence-building",
                     "We measure success by job outcomes, not course completions",
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 text-sm text-white/70">
+                    <div key={i} className="flex items-start gap-3 text-sm text-black/70">
                       <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-3" />
                       {item}
                     </div>
