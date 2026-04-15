@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BriefcaseBusiness, Clock3, Star } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
+import { ArrowRight, Clock3, Star, Users } from "lucide-react";
 import { getCourseCareerSignal } from "@/lib/demo-data";
 import { formatCurrency, formatDuration } from "@/lib/utils";
 import type { CourseSummary } from "@/types";
@@ -10,120 +8,109 @@ type CourseCardProps = {
   course: CourseSummary;
 };
 
+const categoryColors: Record<string, { bg: string; text: string; badge: string }> = {
+  "Web Development":  { bg: "#132238", text: "white", badge: "rgba(255,255,255,0.15)" },
+  "Programming":      { bg: "#0f7f78", text: "white", badge: "rgba(255,255,255,0.15)" },
+  "AI Engineering":   { bg: "#e36a2f", text: "white", badge: "rgba(255,255,255,0.15)" },
+};
+
+const defaultColor = { bg: "#8b5cf6", text: "white", badge: "rgba(255,255,255,0.15)" };
+
 export function CourseCard({ course }: CourseCardProps) {
   const signal = getCourseCareerSignal(course.slug);
+  const color = categoryColors[course.category] ?? defaultColor;
 
   return (
-    <Card className="flex h-full flex-col justify-between overflow-hidden rounded-[36px] p-0">
-      <div className="ink-panel p-6">
-        <div className="academy-mesh opacity-35" />
-        <div className="relative">
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge className="border-white/10 bg-white/10 text-white">
-              {signal.cohortLabel}
-            </Badge>
-            <Badge className="border-white/10 bg-white/8 text-white/74">
-              {course.category}
-            </Badge>
-            <Badge className="border-white/10 bg-white/8 text-white/74">
-              {course.level}
-            </Badge>
-          </div>
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-[0_4px_20px_rgba(26,18,9,0.07)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(26,18,9,0.12)] transition-all duration-300">
+      {/* Colored header */}
+      <div
+        className="relative px-6 pt-6 pb-5"
+        style={{ background: color.bg }}
+      >
+        {/* SVG wave bottom */}
+        <svg
+          aria-hidden
+          viewBox="0 0 400 24"
+          className="absolute bottom-0 left-0 w-full"
+          preserveAspectRatio="none"
+          style={{ fill: "var(--background)" }}
+        >
+          <path d="M0 24 Q100 0 200 12 Q300 24 400 8 L400 24Z" />
+        </svg>
 
-          <div className="mt-6 flex items-start justify-between gap-4">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/58">
-                Target role
-              </p>
-              <p className="mt-2 text-lg font-semibold text-white">
-                {signal.targetRole}
-              </p>
-            </div>
-            <div className="rounded-[22px] border border-white/12 bg-white/8 px-4 py-3 text-right text-white">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/56">
-                Price
-              </p>
-              <p className="mt-1 text-xl font-semibold">
-                {formatCurrency(course.price_cents / 100)}
-              </p>
-            </div>
-          </div>
-
-          <h3 className="mt-6 text-3xl font-semibold text-balance text-white">
-            {course.title}
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-white/72">{signal.promise}</p>
-
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-[22px] border border-white/10 bg-white/8 px-4 py-4">
-              <Clock3 size={16} className="text-[#ffd18b]" />
-              <p className="mt-3 text-sm font-semibold text-white">{signal.duration}</p>
-              <p className="text-xs text-white/56">{signal.weeklyCommitment}</p>
-            </div>
-            <div className="rounded-[22px] border border-white/10 bg-white/8 px-4 py-4">
-              <BriefcaseBusiness size={16} className="text-[#66d0c7]" />
-              <p className="mt-3 text-sm font-semibold text-white">{signal.projectCount}</p>
-              <p className="text-xs text-white/56">Applied deliverables</p>
-            </div>
-            <div className="rounded-[22px] border border-white/10 bg-white/8 px-4 py-4">
-              <Star size={16} className="fill-current text-[#ffd18b]" />
-              <p className="mt-3 text-sm font-semibold text-white">
-                {course.average_rating ? course.average_rating.toFixed(1) : "New"}
-              </p>
-              <p className="text-xs text-white/56">{course.review_count} learner reviews</p>
-            </div>
-          </div>
+        {/* Category + level badges */}
+        <div className="mb-4 flex flex-wrap gap-2">
+          <span
+            className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]"
+            style={{ background: color.badge, color: color.text }}
+          >
+            {course.category}
+          </span>
+          <span
+            className="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]"
+            style={{ background: color.badge, color: color.text }}
+          >
+            {course.level}
+          </span>
         </div>
+
+        <h3 className="text-xl font-black text-white leading-snug">{course.title}</h3>
+        <p className="mt-2 text-sm font-semibold opacity-70 pb-6" style={{ color: color.text }}>
+          {signal.targetRole}
+        </p>
       </div>
 
-      <div className="flex flex-1 flex-col justify-between p-6">
-        <div>
-          <div className="flex flex-wrap gap-2">
-            {signal.tools.map((tool) => (
-              <span
-                key={tool}
-                className="rounded-full bg-[#132238]/6 px-3 py-1.5 text-xs font-semibold text-muted dark:bg-white/8"
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
+      {/* Body */}
+      <div className="flex flex-1 flex-col px-6 py-5">
+        <p className="text-sm leading-7 text-muted">{signal.promise}</p>
 
-          <div className="mt-6 rounded-[26px] border border-border/70 bg-white/56 px-4 py-4 dark:bg-white/6">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Mentor format
-            </p>
-            <p className="mt-2 text-sm font-semibold text-foreground">
-              {signal.delivery}
-            </p>
-            <p className="mt-1 text-sm text-muted">
-              {course.instructor?.full_name
-                ? `Led by ${course.instructor.full_name}`
-                : "Led by Augment Skills Academy mentors"}
-            </p>
-            <p className="mt-2 text-xs text-muted">
-              {course.total_lessons} lessons / {formatDuration(course.duration_seconds)}
-            </p>
-          </div>
+        {/* Meta row */}
+        <div className="mt-5 flex flex-wrap gap-4 text-xs">
+          <span className="flex items-center gap-1.5 text-muted">
+            <Clock3 size={13} className="text-accent" />
+            {signal.duration} · {signal.weeklyCommitment}
+          </span>
+          <span className="flex items-center gap-1.5 text-muted">
+            <Users size={13} className="text-accent" />
+            {course.total_lessons} lessons
+          </span>
+          <span className="flex items-center gap-1.5 text-muted">
+            <Star size={13} className="fill-amber-400 text-amber-400" />
+            {course.average_rating ? course.average_rating.toFixed(1) : "New"}
+            {course.review_count > 0 && (
+              <span className="text-muted/60">({course.review_count})</span>
+            )}
+          </span>
         </div>
 
-        <div className="mt-8 flex items-center justify-between gap-4">
+        {/* Tool chips */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {signal.tools.slice(0, 4).map((tool) => (
+            <span
+              key={tool}
+              className="rounded-full border border-border bg-background px-3 py-1 text-[11px] font-semibold text-muted"
+            >
+              {tool}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-6 flex items-center justify-between gap-3">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-              Includes
-            </p>
-            <p className="mt-2 text-sm text-muted">
-              {signal.support.slice(0, 2).join(" / ")}
+            <p className="text-xs text-muted uppercase tracking-wider font-semibold">Price</p>
+            <p className="text-xl font-black text-foreground">
+              {formatCurrency(course.price_cents / 100)}
             </p>
           </div>
           <Link
             href={`/courses/${course.slug}`}
-            className="inline-flex items-center gap-2 rounded-full bg-[#132238] px-5 py-3 text-sm font-semibold text-white"
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-black text-white transition-transform hover:scale-105"
+            style={{ background: color.bg }}
           >
-            View path <ArrowRight size={16} />
+            Enroll <ArrowRight size={14} />
           </Link>
         </div>
       </div>
-    </Card>
+    </div>
   );
 }
