@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Manrope, Sora, Geist } from "next/font/google";
 import { Providers } from "@/components/providers";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: "--font-inter",
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const sora = Sora({
+  variable: "--font-sora",
   subsets: ["latin"],
 });
 
@@ -15,11 +23,11 @@ export const metadata: Metadata = {
     template: "%s | Augment Skills Academy",
   },
   description:
-    "Production-first courses for engineers building modern web, AI, and platform products.",
+    "Mentor-led career paths for engineers, operators, and ambitious learners who want job-ready skills and visible proof of work.",
   openGraph: {
     title: "Augment Skills Academy",
     description:
-      "Outcome-first technical education with full-stack projects, certificates, and team-friendly delivery.",
+      "Outcome-first learning with mentor feedback, applied projects, career support, and modern technical specializations.",
     siteName: "Augment Skills Academy",
     type: "website",
   },
@@ -33,8 +41,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${inter.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", manrope.variable, sora.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full bg-background text-foreground">
         <Providers>{children}</Providers>

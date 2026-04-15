@@ -14,7 +14,7 @@ const instructorProfiles: Record<string, Profile> = {
     full_name: "Aarav Menon",
     avatar_url: null,
     role: "instructor",
-    bio: "Platform engineer focused on teaching resilient product architecture.",
+    bio: "Platform architect mentoring engineers through production-grade frontend and backend systems.",
     created_at: "2026-01-12T00:00:00.000Z",
   },
   "90000000-0000-0000-0000-000000000002": {
@@ -22,7 +22,7 @@ const instructorProfiles: Record<string, Profile> = {
     full_name: "Naina Shah",
     avatar_url: null,
     role: "instructor",
-    bio: "TypeScript and DX specialist helping teams ship safer code faster.",
+    bio: "TypeScript educator helping career switchers build confidence, fluency, and interview-ready proof of work.",
     created_at: "2026-01-20T00:00:00.000Z",
   },
   "90000000-0000-0000-0000-000000000003": {
@@ -30,63 +30,252 @@ const instructorProfiles: Record<string, Profile> = {
     full_name: "Kabir Rao",
     avatar_url: null,
     role: "instructor",
-    bio: "AI product builder translating prototypes into production systems.",
+    bio: "AI product lead turning promising prototypes into measurable systems with evals, guardrails, and launch discipline.",
     created_at: "2026-02-05T00:00:00.000Z",
   },
 };
 
 export const marketingStats = [
-  { label: "Learners trained", value: "18k+" },
-  { label: "Course completion rate", value: "92%" },
-  { label: "Enterprise cohorts", value: "140+" },
-  { label: "Avg. rating", value: "4.9/5" },
+  { label: "Learners mentored", value: "38k+" },
+  { label: "Avg. career jump", value: "2.4x" },
+  { label: "Hiring teams engaged", value: "320+" },
+  { label: "Learner rating", value: "4.8/5" },
 ];
 
 export const testimonials = [
   {
-    name: "Maya Thompson",
-    role: "Frontend Engineer at Fluxbase",
+    name: "Ritika Sharma",
+    role: "UI Engineer at Northlane",
     quote:
-      "The curriculum feels like pairing with a senior engineer who cares about how software behaves in production.",
+      "What changed for me was the structure. I stopped consuming random tutorials and started shipping work that actually looked employable.",
   },
   {
-    name: "Rohit Bansal",
-    role: "Platform Lead at Northstar",
+    name: "Joseph Mathew",
+    role: "Growth Engineer at Beamstack",
     quote:
-      "We used the academy for an internal upskilling sprint and got a reusable architecture playbook out of it.",
+      "The mentor reviews were blunt in the best way. Every project became tighter, clearer, and easier to explain in interviews.",
   },
   {
-    name: "Elena Park",
-    role: "Indie founder",
+    name: "Ayesha Khan",
+    role: "Career Switcher to Product Ops",
     quote:
-      "The lessons bridge the gap between tutorial confidence and shipping confidence. That difference really matters.",
+      "I joined for the curriculum and stayed for the accountability. It finally felt like someone had designed the path around a real job outcome.",
   },
 ];
 
 export const pricingPlans = [
   {
-    name: "Starter",
+    name: "Specialization Track",
     price: "$99",
-    cadence: "per course",
-    description: "Own a single deep-dive course with lifetime access and downloadable assets.",
+    cadence: "one-time cohort fee",
+    description: "Choose one career path and get lessons, projects, mentor reviews, and portfolio feedback.",
     features: [
-      "One-time purchase",
-      "Lesson notes and attachments",
-      "Certificate on completion",
+      "Live and recorded lessons",
+      "Mentor office hours",
+      "Portfolio-ready capstone",
     ],
   },
   {
-    name: "All Access",
+    name: "Career Accelerator",
     price: "$39",
     cadence: "per month",
-    description: "Access the full academy catalogue, new releases, and cohort extras.",
+    description: "Access all current paths, guided study plans, and community-first career support.",
     features: [
       "Monthly or annual billing",
-      "Every current and future course",
-      "Priority support and cohort drops",
+      "Every path and future releases",
+      "Interview rooms and community clinics",
     ],
   },
 ];
+
+export const learnerJourneys = [
+  {
+    name: "Ishita Verma",
+    track: "Product Design Path",
+    before: "Mechanical engineering graduate unsure how to break into digital roles",
+    after: "Associate product designer leading onboarding experiments",
+    quote:
+      "The weekly critiques gave me more clarity than months of self-study. I finally knew what good work looked like.",
+  },
+  {
+    name: "Siddharth Rao",
+    track: "Growth Marketing Path",
+    before: "Handled ad-hoc sales outreach without a clear digital strategy foundation",
+    after: "Growth associate running paid, lifecycle, and landing page experiments",
+    quote:
+      "The projects felt close to the work I was applying for, so interviews became much easier to navigate.",
+  },
+  {
+    name: "Neha Kulkarni",
+    track: "AI Product Systems Path",
+    before: "Frontend developer experimenting with AI features on the side",
+    after: "Shipped internal copilots with evals, guardrails, and launch reporting",
+    quote:
+      "It was the first learning experience that treated AI like a product system instead of a prompt trick.",
+  },
+];
+
+export const proofHighlights = [
+  {
+    title: "Mentor-led cohorts",
+    description:
+      "Live sessions, project reviews, and weekly checkpoints keep momentum high and guesswork low.",
+  },
+  {
+    title: "Portfolio-first outcomes",
+    description:
+      "Every path ends with artifacts you can show recruiters, managers, and clients with confidence.",
+  },
+  {
+    title: "Career support loops",
+    description:
+      "Resume clinics, interview prep, and narrative coaching help learners translate skill into opportunity.",
+  },
+];
+
+export const logoCloud = [
+  "Northlane",
+  "OrbitPay",
+  "Helio Commerce",
+  "Scope AI",
+  "Layerworks",
+  "SignalOS",
+];
+
+export const learningPillars = [
+  {
+    eyebrow: "Discover",
+    title: "Choose a path that matches your next role, not just your current curiosity",
+    description:
+      "Start with structured role maps, sample lessons, and mentor guidance so you are not guessing what to learn next.",
+  },
+  {
+    eyebrow: "Build",
+    title: "Practice through guided projects that feel like real delivery work",
+    description:
+      "Assignments are designed to mimic handoffs, reviews, and constraints that show up on actual teams.",
+  },
+  {
+    eyebrow: "Launch",
+    title: "Turn your coursework into visible proof recruiters and hiring managers can trust",
+    description:
+      "We help package projects, certificates, and stories into a portfolio narrative that is ready for applications.",
+  },
+];
+
+export const mentorHighlights = [
+  {
+    name: "Aarav Menon",
+    role: "Platform Systems Mentor",
+    focus: "Next.js, backend architecture, team-ready shipping habits",
+    stat: "150+ guided capstone reviews",
+  },
+  {
+    name: "Naina Shah",
+    role: "TypeScript and DX Mentor",
+    focus: "Foundations, API modeling, interview clarity, developer confidence",
+    stat: "4.9/5 learner feedback",
+  },
+  {
+    name: "Kabir Rao",
+    role: "AI Product Mentor",
+    focus: "Evals, guardrails, product thinking, launch-readiness for AI workflows",
+    stat: "20+ AI launches supported",
+  },
+];
+
+export const academyFaqs = [
+  {
+    question: "Who are these programs designed for?",
+    answer:
+      "They are built for ambitious beginners, career switchers, and working professionals who want structured guidance into a sharper role.",
+  },
+  {
+    question: "Do I get live support or only recordings?",
+    answer:
+      "Each path combines structured lessons with mentor-led sessions, office hours, and review checkpoints so learners are not left studying alone.",
+  },
+  {
+    question: "What makes the learning experience outcome-oriented?",
+    answer:
+      "We anchor every program around a role goal, a set of applied projects, and support for turning that work into portfolio and interview material.",
+  },
+  {
+    question: "Can teams use this for internal upskilling?",
+    answer:
+      "Yes. The platform already supports enterprise cohorts, private onboarding tracks, and progress visibility for managers.",
+  },
+];
+
+export const contactHighlights = [
+  "Book a career conversation for the right learning path",
+  "Plan a private cohort for product, growth, or engineering teams",
+  "Partner with the academy on workshops, content, or placements",
+];
+
+type CourseCareerSignal = {
+  cohortLabel: string;
+  targetRole: string;
+  duration: string;
+  weeklyCommitment: string;
+  delivery: string;
+  projectCount: string;
+  promise: string;
+  tools: string[];
+  support: string[];
+};
+
+const courseCareerSignals: Record<string, CourseCareerSignal> = {
+  "nextjs-production": {
+    cohortLabel: "Job-ready web systems path",
+    targetRole: "Frontend or platform engineer",
+    duration: "8 weeks",
+    weeklyCommitment: "6-8 hrs/week",
+    delivery: "Mentor reviews + implementation labs",
+    projectCount: "3 production-style builds",
+    promise: "Learn to architect, review, and ship modern full-stack experiences with stronger technical judgment.",
+    tools: ["Next.js 16", "Supabase", "Stripe", "Deployment workflows"],
+    support: ["Weekly review rooms", "Architecture feedback", "Portfolio framing"],
+  },
+  "typescript-foundations": {
+    cohortLabel: "Core engineering confidence path",
+    targetRole: "Frontend engineer or full-stack contributor",
+    duration: "6 weeks",
+    weeklyCommitment: "5-6 hrs/week",
+    delivery: "Hands-on drills + code review clinics",
+    projectCount: "2 portfolio artifacts",
+    promise: "Build fluency with types, validation, and safer collaboration patterns that hiring teams look for.",
+    tools: ["TypeScript", "Zod", "API contracts", "Refactoring exercises"],
+    support: ["Doubt-clearing sessions", "Interview story coaching", "Resume proof points"],
+  },
+  "ai-product-systems": {
+    cohortLabel: "Advanced AI delivery path",
+    targetRole: "AI product engineer",
+    duration: "7 weeks",
+    weeklyCommitment: "7-9 hrs/week",
+    delivery: "Live cohort + evaluation workshops",
+    projectCount: "2 AI launch simulations",
+    promise: "Move from demo-grade AI features to robust, testable systems that can survive real usage.",
+    tools: ["Prompt workflows", "Evals", "Guardrails", "Background jobs"],
+    support: ["Launch teardown sessions", "Quality scorecards", "Career narrative support"],
+  },
+};
+
+export function getCourseCareerSignal(slug: string) {
+  return (
+    courseCareerSignals[slug] ?? {
+      cohortLabel: "Mentor-led specialization",
+      targetRole: "Modern product builder",
+      duration: "6 weeks",
+      weeklyCommitment: "5 hrs/week",
+      delivery: "Mentor-led learning",
+      projectCount: "2 guided projects",
+      promise: "Build practical skill with structure, feedback, and portfolio-ready output.",
+      tools: ["Projects", "Mentor support", "Feedback"],
+      support: ["Career coaching", "Community access", "Project review"],
+    }
+  );
+}
 
 export const fallbackCourseDetails: CourseDetail[] = [
   {

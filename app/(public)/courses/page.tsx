@@ -80,11 +80,23 @@ export default async function CoursesPage({ searchParams }: PageProps) {
         <p className="text-sm text-muted">{courses.length} courses matched</p>
       </div>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-3">
-        {courses.map((course) => (
-          <CourseCard key={course.id} course={course} />
-        ))}
-      </div>
+      {courses.length ? (
+        <div className="mt-8 grid gap-6 lg:grid-cols-3">
+          {courses.map((course) => (
+            <CourseCard key={course.id} course={course} />
+          ))}
+        </div>
+      ) : (
+        <div className="section-shell mt-8 rounded-[28px] p-8 text-center">
+          <p className="text-lg font-semibold text-foreground">
+            No courses match those filters yet.
+          </p>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Try a broader search or reset the filters to explore the full academy
+            catalogue.
+          </p>
+        </div>
+      )}
     </main>
   );
 }
