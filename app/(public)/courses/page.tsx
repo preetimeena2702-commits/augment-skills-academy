@@ -69,27 +69,27 @@ export default async function CoursesPage({ searchParams }: PageProps) {
 
           {/* Right — signal card */}
           <Reveal delay={0.1}>
-            <div className="shine-border-card rounded-3xl bg-[#0e1e33] p-7 text-white shadow-xl">
-              <p className="mb-5 text-[10px] font-black uppercase tracking-[0.22em] text-white/50">
+            <div className="shine-border-card-dark rounded-3xl p-7 text-black shadow-xl">
+              <p className="mb-5 text-[10px] font-black uppercase tracking-[0.22em] text-black/50">
                 Catalogue signals
               </p>
               {/* Stats row */}
               <div className="grid grid-cols-3 gap-3 mb-6">
                 {catalogSignals.map((s) => (
-                  <div key={s.label} className="rounded-2xl bg-white/[0.06] p-4 text-center">
+                  <div key={s.label} className="rounded-2xl bg-white/6 p-4 text-center">
                     <div className="flex justify-center mb-2 text-accent-3">{s.icon}</div>
                     <p className="text-xl font-black">{s.value}</p>
-                    <p className="mt-1 text-[10px] text-white/45 font-semibold">{s.label}</p>
+                    <p className="mt-1 text-[10px] text-black/45 font-semibold">{s.label}</p>
                   </div>
                 ))}
               </div>
 
               <div className="grid gap-3 md:grid-cols-2">
-                <div className="rounded-2xl bg-white/[0.06] p-4">
+                <div className="rounded-2xl bg-white/6 p-4">
                   <p className="text-[10px] font-black uppercase tracking-wider text-accent mb-2">
                     Role-first discovery
                   </p>
-                  <p className="text-xs leading-6 text-white/60">
+                  <p className="text-xs leading-6 text-black/60">
                     Compare programs by role direction, mentor support, and project load.
                   </p>
                 </div>
@@ -97,7 +97,7 @@ export default async function CoursesPage({ searchParams }: PageProps) {
                   <p className="text-[10px] font-black uppercase tracking-wider text-accent-3 mb-2">
                     Mentor-led signal
                   </p>
-                  <p className="text-xs leading-6 text-white/60">
+                  <p className="text-xs leading-6 text-black/60">
                     Delivery style and outcome cues before you open the detail page.
                   </p>
                 </div>

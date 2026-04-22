@@ -51,7 +51,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
         <div className="grid gap-8 xl:grid-cols-[1.04fr_0.96fr] xl:items-start">
           <div>
             <div className="flex flex-wrap gap-2">
-              <Badge className="bg-accent text-white">{signal.cohortLabel}</Badge>
+              <Badge className="bg-accent text-black">{signal.cohortLabel}</Badge>
               <Badge>{course.category}</Badge>
               <Badge>{course.level}</Badge>
             </div>
@@ -69,7 +69,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 return (
                   <div
                     key={item.label}
-                    className="stat-tile rounded-[28px] px-5 py-5 dark:text-white"
+                    className="stat-tile rounded-[28px] px-5 py-5 dark:text-black"
                   >
                     <Icon size={18} className="text-accent" />
                     <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-muted">
@@ -96,7 +96,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
           <div className="ink-panel rounded-[40px] p-8 lg:p-10">
             <div className="academy-mesh opacity-35" />
             <div className="relative">
-              <p className="text-sm uppercase tracking-[0.18em] text-white/60">
+              <p className="text-sm uppercase tracking-[0.18em] text-black/60">
                 Enrollment snapshot
               </p>
               <div className="mt-4 flex items-end justify-between gap-4">
@@ -104,19 +104,19 @@ export default async function CourseDetailPage({ params }: PageProps) {
                   <p className="text-4xl font-semibold">
                     {formatCurrency(course.price_cents / 100)}
                   </p>
-                  <p className="mt-2 text-sm text-white/60">one-time cohort fee</p>
+                  <p className="mt-2 text-sm text-black/60">one-time cohort fee</p>
                 </div>
-                <div className="rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-semibold text-white">
+                <div className="rounded-full border border-white/10 bg-white/8 px-4 py-2 text-sm font-semibold text-black">
                   {course.average_rating ? course.average_rating.toFixed(1) : "New"} rated
                 </div>
               </div>
 
               <div className="mt-6 rounded-[28px] border border-white/10 bg-white/8 px-5 py-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/56">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-black/56">
                   Mentor format
                 </p>
-                <p className="mt-3 text-lg font-semibold text-white">{signal.delivery}</p>
-                <p className="mt-2 text-sm leading-7 text-white/72">
+                <p className="mt-3 text-lg font-semibold text-black">{signal.delivery}</p>
+                <p className="mt-2 text-sm leading-7 text-black/72">
                   Includes lesson notes, attachments, completion tracking, and
                   certificate-ready course completion.
                 </p>
@@ -126,7 +126,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 {signal.support.map((item) => (
                   <div key={item} className="flex items-start gap-3">
                     <CircleCheckBig size={16} className="mt-1 text-[#ffd18b]" />
-                    <p className="text-sm text-white/76">{item}</p>
+                    <p className="text-sm text-black/76">{item}</p>
                   </div>
                 ))}
               </div>
@@ -140,7 +140,7 @@ export default async function CourseDetailPage({ params }: PageProps) {
                 </Link>
                 <Link
                   href="/login"
-                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm font-medium text-white"
+                  className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/8 px-5 py-3 text-sm font-medium text-black"
                 >
                   Already enrolled? Open dashboard
                 </Link>

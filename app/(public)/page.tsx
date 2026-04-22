@@ -115,6 +115,7 @@ export default async function HomePage() {
               {/* Headline */}
               <h1 className="text-5xl font-black leading-[1.06] tracking-tight text-balance md:text-6xl lg:text-7xl">
                 Launch your{" "}
+                <br />
                 <span className="relative inline-block">
                   <HeroWords
                     words={["Tech Career", "AI Skills", "Next Role", "Portfolio"]}
