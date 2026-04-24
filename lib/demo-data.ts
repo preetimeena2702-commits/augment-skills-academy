@@ -179,8 +179,6 @@ function createModules(
           module_id: moduleId,
           title,
           position: 1,
-          mux_asset_id: null,
-          mux_playback_id: null,
           content_md: `${title} with guided explanations, mentor context, and practical exercises.`,
           is_preview: index < previewCount,
           duration_seconds: 900,

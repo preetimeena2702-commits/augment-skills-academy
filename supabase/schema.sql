@@ -37,8 +37,6 @@ create table if not exists lessons (
   module_id uuid not null references modules(id) on delete cascade,
   title text not null,
   position integer not null default 0,
-  mux_asset_id text,
-  mux_playback_id text,
   content_md text,
   is_preview boolean not null default false,
   duration_seconds integer,
@@ -80,18 +78,6 @@ create table if not exists reviews (
   rating integer not null check (rating between 1 and 5),
   body text not null,
   approved boolean not null default false,
-  created_at timestamptz not null default now()
-);
-
-create table if not exists payments (
-  id uuid primary key default uuid_generate_v4(),
-  user_id uuid references profiles(id) on delete set null,
-  course_id uuid references courses(id) on delete set null,
-  razorpay_payment_id text unique not null,
-  razorpay_customer_id text,
-  amount_cents integer not null default 0,
-  currency text not null default 'usd',
-  status text not null default 'pending',
   created_at timestamptz not null default now()
 );
 
@@ -156,7 +142,6 @@ alter table enrollments enable row level security;
 alter table progress enable row level security;
 alter table certificates enable row level security;
 alter table reviews enable row level security;
-alter table payments enable row level security;
 alter table coupons enable row level security;
 alter table notifications enable row level security;
 alter table posts enable row level security;
@@ -299,11 +284,6 @@ with check (((auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'));
 
 create policy "admin full access reviews"
 on reviews for all
-using (((auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'))
-with check (((auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'));
-
-create policy "admin full access payments"
-on payments for all
 using (((auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'))
 with check (((auth.jwt() -> 'user_metadata' ->> 'role') = 'admin'));
 

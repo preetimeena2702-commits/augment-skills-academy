@@ -6,17 +6,6 @@ const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
   ADMIN_PASSWORD: z.string().min(1).optional(),
-  RAZORPAY_KEY_ID: z.string().min(1).optional(),
-  RAZORPAY_KEY_SECRET: z.string().min(1).optional(),
-  RAZORPAY_WEBHOOK_SECRET: z.string().min(1).optional(),
-  NEXT_PUBLIC_RAZORPAY_KEY_ID: z.string().min(1).optional(),
-  RAZORPAY_COURSE_PLAN_ID: z.string().min(1).optional(),
-  RAZORPAY_MONTHLY_PLAN_ID: z.string().min(1).optional(),
-  RAZORPAY_ANNUAL_PLAN_ID: z.string().min(1).optional(),
-  MUX_TOKEN_ID: z.string().min(1).optional(),
-  MUX_TOKEN_SECRET: z.string().min(1).optional(),
-  MUX_SIGNING_KEY_ID: z.string().min(1).optional(),
-  MUX_SIGNING_PRIVATE_KEY: z.string().min(1).optional(),
   RESEND_API_KEY: z.string().min(1).optional(),
   RESEND_FROM_EMAIL: z.string().email().optional(),
   SUPPORT_EMAIL: z.string().email().optional(),
@@ -57,12 +46,4 @@ export function isSupabaseConfigured() {
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY &&
       process.env.SUPABASE_SERVICE_ROLE_KEY,
   );
-}
-
-export function isRazorpayConfigured() {
-  return false;
-}
-
-export function isMuxConfigured() {
-  return false;
 }

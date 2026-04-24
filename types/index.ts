@@ -57,8 +57,6 @@ export type Lesson = {
   module_id: string;
   title: string;
   position: number;
-  mux_asset_id: string | null;
-  mux_playback_id: string | null;
   content_md: string | null;
   is_preview: boolean;
   duration_seconds: number | null;
