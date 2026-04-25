@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { ContactForm } from "@/components/contact/contact-form";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -8,19 +9,16 @@ export default function ContactPage() {
       <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <Badge>Contact</Badge>
-          <h1 className="mt-4 text-5xl font-semibold">
-            Talk to us about cohorts, partnerships, or onboarding
-          </h1>
+          <h1 className="mt-4 text-5xl font-semibold">Get in touch with us</h1>
           <p className="mt-5 text-lg leading-8 text-muted">
-            Use the form to reach the academy team for enterprise training, team
-            rollouts, or creator partnerships.
+            Whether you have questions about a course, need guidance on which path suits you, or want to explore partnership opportunities - we're here.
           </p>
 
           <div className="mt-8 grid gap-4">
             {[
-              "Enterprise cohorts for product and platform teams",
-              "Curriculum partnerships and internal upskilling tracks",
-              "Migration support for modern web and AI product stacks",
+              "Course guidance - not sure which track is right for you?",
+              "Enrollment support - need help with the process?",
+              "Partnerships & collaborations - let's work together",
             ].map((item) => (
               <Card key={item} className="rounded-[24px] p-5">
                 <p className="text-sm text-muted">{item}</p>

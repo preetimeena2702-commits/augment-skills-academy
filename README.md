@@ -1,92 +1,105 @@
 # Augment Skills Academy
 
-Production-ready course platform starter built with Next.js App Router, Supabase, Razorpay, Mux, Resend, React Email, and React-PDF.
+Mentor-led academy site and lightweight operations app built with Next.js 16, Supabase, Tailwind CSS v4, Resend, MDX, and React PDF.
 
-## What is included
+## What this repo contains
 
-- Public marketing site with home, catalogue, course detail, about, contact, and MDX-backed resources pages
-- Supabase-backed auth flows for email/password, Google OAuth, magic link, and password reset
-- Middleware-style request protection using `proxy.ts` for `/dashboard` and `/admin`
-- Student dashboard, course player shell, notifications API, and certificate verification page
-- Admin overview with revenue, enrollments, reviews, and coupon snapshots
-- Supabase SQL schema and seed files
-- Razorpay and Mux webhook route handlers
+- Public marketing pages for home, courses, course details, about, contact, blog, and enrollment
+- A simple password-protected admin area for enrollment requests and contact submissions
+- Supabase-backed enrollment and contact flows
+- Local MDX blog content in `content/posts`
+- SQL schema and seed files under `supabase/`
 
 ## Stack
 
-- Next.js 16 App Router with Server Components and Server Actions
-- Tailwind CSS v4 and reusable UI primitives in `components/ui`
-- Supabase for PostgreSQL, Auth, and Storage integration points
-- Razorpay for checkout and billing webhooks
-- Mux for uploads and signed playback token plumbing
-- Resend + React Email for transactional email
-- React Hook Form + Zod for client/server form validation
-- TanStack Query for client-side notifications fetching
+- Next.js 16 App Router
+- React 19
+- Tailwind CSS v4
+- Supabase SSR + `@supabase/supabase-js`
+- Zod + React Hook Form
+- Resend + React Email
+- MDX blog content
 
 ## Local setup
 
-1. Install dependencies with `npm install`.
-2. Copy `.env.example` to `.env.local` and fill every required value.
-3. Create a Supabase project and run:
-   - `supabase/schema.sql`
-   - `supabase/seed.sql`
-4. In Supabase Auth:
-   - enable Email/Password
-   - enable Magic Link / OTP
-   - enable Google OAuth and set the callback URL to `http://localhost:3000/auth/callback`
-5. Start the app with `npm run dev`.
+1. Install dependencies:
 
-## Supabase notes
+```bash
+npm install
+```
 
-- `profiles`, `courses`, `modules`, `lessons`, `enrollments`, `progress`, `certificates`, `reviews`, `payments`, `coupons`, `notifications`, `posts`, `lesson_notes`, and `bookmarks` are defined in `supabase/schema.sql`.
-- Row Level Security is enabled on every table.
-- The app uses the SSR server client in `lib/supabase/server.ts` and request-syncing logic in `lib/supabase/middleware.ts`.
-- The `auth` callback route exchanges OAuth and magic-link codes at `/auth/callback`.
+2. Copy `.env.examples` to `.env.local`.
 
-## Razorpay setup
+3. Set the required values:
 
-1. Create products and prices for:
-   - one-time course purchase
-   - monthly all-access subscription
-   - annual all-access subscription
-2. Add the resulting plan IDs to `.env.local`.
-3. Forward Razorpay webhooks to `http://localhost:3000/api/razorpay/webhook`.
-4. Make sure payment and subscription events are enabled for your use case.
+- `NEXT_PUBLIC_APP_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
 
-## Mux setup
+4. Optional values:
 
-1. Create API credentials and a signing key in Mux.
-2. Add both the API token pair and playback signing credentials to `.env.local`.
-3. Point the Mux webhook to `http://localhost:3000/api/mux/webhook`.
-4. Enable `video.asset.ready`.
+- `ADMIN_PASSWORD`
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- `SUPPORT_EMAIL`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
 
-## Email setup
+5. Apply the SQL files in Supabase:
 
-- Configure Resend API credentials in `.env.local`.
-- `emails/welcome-email.tsx` is used for signup email delivery.
-- `app/(public)/contact/actions.ts` sends contact submissions to `SUPPORT_EMAIL`.
+- `supabase/schema.sql`
+- `supabase/enrollment-schema.sql`
+- `supabase/seed.sql`
 
-## Build and verification
+6. Start the app:
 
-- `npm run typecheck`
+```bash
+npm run dev
+```
+
+## Environment variables
+
+Required:
+
+- `NEXT_PUBLIC_APP_URL`
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY`
+
+Optional:
+
+- `ADMIN_PASSWORD`
+- `RESEND_API_KEY`
+- `RESEND_FROM_EMAIL`
+- `SUPPORT_EMAIL`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+
+See [.env.examples](./.env.examples) for the current template.
+
+## Product notes
+
+- Public users do not have login, signup, or dashboard flows.
+- Course enrollment happens through `/enroll` and writes to `enrollment_requests`.
+- Contact form submissions write to `contact_submissions`.
+- Admin access uses a simple password cookie flow under `/admin`.
+- Resend is optional. Contact and enrollment emails fail silently if it is not configured.
+
+## Commands
+
+- `npm run dev`
 - `npm run lint`
+- `npm run typecheck`
 - `npm run build`
-
-## Deployment
-
-1. Import the repo into Vercel.
-2. Set all environment variables from `.env.example`.
-3. Update Supabase, Razorpay, Google OAuth, and Mux callback/webhook URLs to the production domain.
-4. Deploy with `next build`.
 
 ## Project structure
 
-- `app/(public)` public-facing pages
-- `app/(auth)` auth flows
-- `app/dashboard` student experience
-- `app/admin` admin experience
-- `app/api` webhooks and client data endpoints
-- `lib` business logic and integration helpers
-- `components` UI and feature components
+- `app/(public)` public-facing routes
+- `app/admin` admin auth and admin pages
+- `app/api` minimal API routes
+- `components` shared UI and feature components
+- `content/posts` MDX blog content
 - `emails` transactional email templates
-- `content/posts` local MDX resources
+- `lib` app helpers and Supabase utilities
+- `supabase` SQL schema and seed files
