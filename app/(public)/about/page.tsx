@@ -117,7 +117,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-6">
+      {/* <section className="mx-auto max-w-7xl px-6 py-6">
         <Reveal>
           <div className="relative overflow-hidden rounded-[40px] bg-[#0b1928] px-8 py-12 text-center text-white md:px-14">
             <div className="relative">
@@ -136,7 +136,7 @@ export default function AboutPage() {
             </div>
           </div>
         </Reveal>
-      </section>
+      </section> */}
     </main>
   );
 }

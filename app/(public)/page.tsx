@@ -55,10 +55,10 @@ export default async function HomePage() {
 
           <Reveal delay={0.12}>
             <div className="shine-border-card relative rounded-[32px] bg-[#0e1e33] p-7 shadow-[0_32px_80px_rgba(0,0,0,0.30)]">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3.5 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10  py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-black/70">
                 What you get
               </span>
-              <h2 className="mt-6 text-[22px] font-black leading-tight text-white">Everything you need to move from learning to hiring-ready</h2>
+              <h2 className="text-[22px] font-black leading-tight text-black">Everything you need to move from learning to hiring-ready</h2>
               <div className="mt-6 space-y-4">
                 {[
                   "Industry-expert mentors",
@@ -66,7 +66,7 @@ export default async function HomePage() {
                   "Resume, mock interviews & referrals",
                   "Lifetime community access",
                 ].map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-white/[0.07] px-4 py-3 text-white/85">
+                  <div key={item} className="flex items-start gap-3 rounded-2xl bg-white/[0.07] px-4 py-3 text-black/85">
                     <CircleCheckBig size={16} className="mt-1 text-accent-3" />
                     <p className="text-sm">{item}</p>
                   </div>
@@ -229,7 +229,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-10">
+     {/* <section className="mx-auto max-w-7xl px-6 py-10">
         <Reveal>
           <div className="relative overflow-hidden rounded-[40px] bg-[#0b1928] px-8 py-14 text-white md:px-14 md:py-16">
             <div className="relative grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
@@ -250,7 +250,7 @@ export default async function HomePage() {
             </div>
           </div>
         </Reveal>
-      </section>
+      </section> */}
     </main>
   );
 }

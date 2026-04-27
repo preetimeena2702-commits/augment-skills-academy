@@ -67,7 +67,7 @@ export default async function CoursesPage({ searchParams }: PageProps) {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-10">
+      {/* <section className="mx-auto max-w-7xl px-6 pb-10">
         <Reveal>
           <form className="glass-panel grid gap-3 rounded-[28px] p-5 md:grid-cols-[1.5fr_1fr_1fr_1fr_auto]">
             <div className="relative">
@@ -95,17 +95,17 @@ export default async function CoursesPage({ searchParams }: PageProps) {
             </button>
           </form>
         </Reveal>
-      </section>
+      </section> */}
 
       <section className="mx-auto max-w-7xl px-6 pb-10">
-        <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
+        {/* <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted">
             <span className="font-black text-foreground">{courses.length}</span> courses matched
           </p>
-        </div>
+        </div> */}
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {courses.map((course, index) => (
+          {courses.reverse().map((course, index) => (
             <Reveal key={course.id} delay={index * 0.05}>
               <CourseCard course={course} />
             </Reveal>

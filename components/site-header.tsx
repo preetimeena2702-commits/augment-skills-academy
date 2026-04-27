@@ -4,6 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
+import { Oswald } from "next/font/google";
+
+const oswald = Oswald({ subsets: ["latin"] });
 
 const links = [
   { href: "/courses", label: "Courses" },
@@ -41,8 +44,7 @@ export function SiteHeader() {
         <Link href="/" className="group flex items-center gap-3">
           <Image src="/brand-mark.png" alt="Augment Skills Academy" width={38} height={38} priority />
           <div className="hidden sm:block leading-none">
-            <p className="text-[9px] font-black uppercase tracking-[0.28em] text-muted/80">Augment Skill</p>
-            <p className="text-[13px] font-black tracking-tight text-foreground">Academy</p>
+            <p className={`text-[15px] font-bold tracking-wide text-foreground ${oswald.className}`}>Augment Skill Academy</p>
           </div>
         </Link>
 

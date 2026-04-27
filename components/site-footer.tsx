@@ -24,7 +24,7 @@ const footerNav = [
     title: "Contact",
     links: [
       { href: "mailto:augmentskillacademy@gmail.com", label: "augmentskillacademy@gmail.com" },
-      { href: "https://augmentskillacademy.in", label: "augmentskillacademy.in" },
+      { href: "https://wa.me/917389445447", label: "+91-7389445447" },
     ],
   },
 ];

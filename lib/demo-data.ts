@@ -25,9 +25,21 @@ export const marketingStats = [
 // Each entry: { name: string, role: string, quote: string }
 // Add or remove items freely - the grid auto-adjusts.
 export const testimonials = [
-  { name: "Student Name", role: "Role at Company", quote: "Your testimonial here." },
-  { name: "Student Name", role: "Role at Company", quote: "Your testimonial here." },
-  { name: "Student Name", role: "Role at Company", quote: "Your testimonial here." },
+  {
+    name: "Rudra Sharma",
+    role: "Frontend Developer at TCS",
+    quote: "The course helped me bridge the gap between theory and real-world projects. I was able to confidently crack interviews and land my first job easily."
+  },
+  {
+    name: "Anjali Verma",
+    role: "MERN Stack Developer at Startup",
+    quote: "I loved how everything was explained step by step. The hands-on projects made a huge difference, and I finally feel confident building full-stack applications on my own."
+  },
+  {
+    name: "Aman Khan",
+    role: "Software Engineer Intern",
+    quote: "Before joining, I had zero clarity on development. Now I’ve built multiple projects and even got selected for an internship. The mentorship support was genuinely helpful."
+  }
 ];
 
 export const learningPillars = [
